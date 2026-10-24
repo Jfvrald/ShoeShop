@@ -16,11 +16,11 @@ const CHAPTERS = [
 ];
 
 const CARDS = [
-  { img: "catalog/aj1-high-royal.jpg", brand: "Jordan", x: "52vw", y: "6vh", s: 1.5, r: "-5deg", w: "15vw" },
-  { img: "catalog/af1-shadow-pastel.jpg", brand: "Nike", x: "72vw", y: "30vh", s: 1.15, r: "4deg", w: "13vw" },
-  { img: "catalog/nb-574-peach.jpg", brand: "New Balance", x: "46vw", y: "56vh", s: 0.8, r: "3deg", w: "11.5vw" },
-  { img: "catalog/adidas-prophere-teal.jpg", brand: "Adidas", x: "83vw", y: "4vh", s: 1.9, r: "6deg", w: "10vw" },
-  { img: "catalog/vans-old-skool-burgundy.jpg", brand: "Vans", x: "66vw", y: "60vh", s: 1.3, r: "-4deg", w: "12vw" },
+  { img: "catalog/aj1-high-royal.jpg", brand: "Jordan", x: "49vw", y: "3vh", s: 0.7, r: "-5deg", w: "11vw" },
+  { img: "catalog/adidas-prophere-teal.jpg", brand: "Adidas", x: "65vw", y: "0vh", s: 1.1, r: "4deg", w: "9vw" },
+  { img: "catalog/af1-shadow-pastel.jpg", brand: "Nike", x: "79vw", y: "6vh", s: 0.8, r: "5deg", w: "10vw" },
+  { img: "catalog/nb-574-peach.jpg", brand: "New Balance", x: "50vw", y: "56vh", s: 0.9, r: "3deg", w: "9.5vw" },
+  { img: "catalog/vans-old-skool-burgundy.jpg", brand: "Vans", x: "76vw", y: "54vh", s: 0.6, r: "-4deg", w: "10.5vw" },
 ];
 
 function Forecast() {

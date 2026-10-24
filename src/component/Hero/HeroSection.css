@@ -97,7 +97,7 @@
       0
     )
     rotate(calc(-16deg + var(--a) * 11deg + var(--b) * 24deg))
-    scale(calc(1 + var(--a) * 0.18));
+    scale(calc(1 - var(--a) * 0.42));
   filter: drop-shadow(0 50px 40px rgb(0 0 0 / 0.55));
   will-change: transform, opacity;
 }
@@ -126,6 +126,7 @@
   border: 1px solid rgb(255 255 255 / 0.12);
   box-shadow: 0 30px 50px -20px rgb(0 0 0 / 0.7);
   opacity: calc(var(--c1) * 0.95);
+  scale: calc(0.86 + var(--c1) * 0.14);
   transform: translate3d(var(--x), calc(var(--y) + (0.5 - var(--p)) * var(--s) * 100vh), 0) rotate(var(--r));
   will-change: transform, opacity;
 }
@@ -512,7 +513,7 @@
         0
       )
       rotate(calc(-14deg + var(--a) * 8deg + var(--b) * 20deg))
-      scale(calc(1 + var(--a) * 0.1));
+      scale(calc(1 - var(--a) * 0.3));
   }
   .hs-card {
     --w: 30vw !important;
