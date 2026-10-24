@@ -19,11 +19,11 @@ npm run build
 npm test -- --watchAll=false --runInBand
 ```
 
-Local app: `http://localhost:3000/ShoeShop`
+Local app: `http://localhost:3000`
 
-Visual guide: `http://localhost:3000/ShoeShop/design-guide.html`
+Visual guide: `http://localhost:3000/design-guide.html`
 
-The existing package homepage sets the public base path to `/ShoeShop/`. Image URLs use `process.env.PUBLIC_URL`, so they work under this base path. Navigation uses hashes and needs no server route rewrite.
+The package homepage is `.` so production assets use relative URLs at both the Vercel domain root and the GitHub Pages project path. Image URLs use `process.env.PUBLIC_URL`. Vercel builds with `npm run build` and serves the `build` directory as configured in `vercel.json`. Navigation uses hashes and needs no server route rewrite.
 
 ## Structure
 

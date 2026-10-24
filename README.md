@@ -9,7 +9,7 @@ npm ci
 npm start
 ```
 
-Open [Sole Rise](http://localhost:3000/ShoeShop).
+Open [Sole Rise](http://localhost:3000).
 
 ## Explore the demo
 
@@ -22,7 +22,7 @@ This is a **local demo**. It creates no real accounts, payments, shipments, or p
 
 ## Design and implementation
 
-- [Visual design guide](http://localhost:3000/ShoeShop/design-guide.html)
+- [Visual design guide](http://localhost:3000/design-guide.html)
 - [Design guide](docs/DESIGN_GUIDE.md)
 - [System documentation](docs/SYSTEM_DOCUMENTATION.md)
 
@@ -33,4 +33,12 @@ npm test -- --watchAll=false --runInBand
 npm run build
 ```
 
-Built with React 18 and the existing Create React App toolchain. The public base path remains `/ShoeShop/`. No new runtime dependencies were added.
+Built with React 18 and the existing Create React App toolchain. Production assets use relative paths so the hash-routed app works at the Vercel domain root and under a GitHub Pages project path. No new runtime dependencies were added.
+
+## Vercel deployment
+
+The checked-in `vercel.json` selects Create React App, runs `npm run build`, and serves `build` (not `public`). Set the Vercel Root Directory to the folder containing this `package.json`.
+
+Leave `PUBLIC_URL` unset in the Vercel environment settings; an old `/ShoeShop` value overrides the relative `homepage` setting. Deploy the commit containing these changes to regenerate the asset URLs. Navigation uses hashes (`/#shop`, `/#account`), so no catch-all rewrite is needed.
+
+A white page can occur when the deployed HTML requests `/ShoeShop/static/...` assets that do not exist at that location, or when the unbuilt `public/index.html` is served. Check that the deployment serves `build/index.html` and that its JavaScript and CSS requests succeed.
