@@ -40,4 +40,4 @@ Sent on every route by Vercel:
 
 `.gitignore` now covers `.env`, `.env*` (except `.env.example`), `*.log` and `.vercel`.
 
-**Pending, awaiting owner approval:** `dev.log` (a local `npm start` log, no secrets) was committed before the ignore rule and is still tracked. Untrack it with `git rm --cached dev.log`; the file stays on disk.
+`dev.log` (a local `npm start` log, no secrets) was committed before the ignore rule; it was untracked on 31 Oct 2026 and stays on disk.
