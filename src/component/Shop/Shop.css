@@ -493,3 +493,87 @@
     font-size: 13px;
   }
 }
+
+/* Search, sort, Saved, Filters and category pills live in one bar.
+   Desktop: it dissolves into the header row. Phones/tablets: it sticks
+   under the site header so filters are always one tap away. */
+.shop-bar {
+  display: contents;
+}
+.shop-head .shop-pills {
+  flex: 1 1 100%;
+  min-width: 0;
+}
+@media (max-width: 960px) {
+  .shop-head {
+    display: contents;
+  }
+  .shop-head > div:first-child {
+    margin-bottom: 16px;
+  }
+  .shop-bar {
+    display: block;
+    position: sticky;
+    top: 64px;
+    z-index: 15;
+    /* bleed to the screen edges so scrolling cards never peek around the bar */
+    margin: 0 -5vw 12px;
+    padding: 10px 5vw 0;
+    background: rgb(14 14 13 / 0.94);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .shop-tools {
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .shop-search,
+  .shop-sort select,
+  .shop-saved,
+  .shop-open-filters {
+    height: 40px;
+  }
+  .shop-pills {
+    padding: 10px 0 10px;
+  }
+  .shop-pills button {
+    flex: none;
+  }
+}
+@media (max-width: 960px) {
+  /* sort takes the leftover width so its label is never cut off */
+  .shop-sort {
+    flex: 1 1 0;
+    min-width: 108px;
+  }
+  .shop-sort select {
+    width: 100%;
+    padding-left: 12px;
+    padding-right: 28px;
+  }
+  .shop-saved,
+  .shop-open-filters {
+    flex: none;
+    padding: 0 12px;
+    gap: 6px;
+    font-size: 13px;
+  }
+  .shop-pills button {
+    height: 34px;
+  }
+  .shop-pills {
+    padding: 8px 0;
+  }
+}
+@media (max-width: 520px) {
+  /* heart + count is enough on a phone; the aria-pressed state still names it */
+  .shop-saved-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

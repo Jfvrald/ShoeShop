@@ -473,11 +473,38 @@
 }
 @media (max-width: 760px) {
   .pd {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: 20px;
   }
   .pd-media {
     position: static;
+    min-width: 0;
+  }
+  /* thumbnails scroll sideways inside their own row instead of widening the dialog */
+  .pd-thumbs {
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+  .pd-thumbs::-webkit-scrollbar {
+    display: none;
+  }
+  .pd-thumbs li {
+    flex: none;
+    scroll-snap-align: start;
+  }
+  .pd-thumbs button {
+    width: 56px;
+    height: 56px;
+  }
+  .pd-info h3 {
+    overflow-wrap: anywhere;
+  }
+  .pd-copy,
+  .pd-meta {
+    min-width: 0;
+    overflow-wrap: anywhere;
   }
 }
 

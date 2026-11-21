@@ -1854,3 +1854,34 @@ body:has(dialog[open]) {
     grid-template-columns: 1fr;
   }
 }
+
+/* ---- responsive pass: phones and touch tablets ---- */
+/* iOS Safari zooms the page when a focused field is under 16px. */
+@media (max-width: 860px), (pointer: coarse) {
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+@media (max-width: 860px) {
+  /* Footer links were 18px tall: give them a thumb-sized hit area
+     without changing how the column looks. */
+  .footer-top > div > a:not(.brand),
+  .footer-top > div > button:not(.round-arrow) {
+    margin: 0;
+    padding: 10px 0;
+  }
+  .footer-bottom .reset-link {
+    padding: 10px 0;
+  }
+}
+
+/* Dialogs and drawers never scroll sideways; content must shrink to fit. */
+.dialog {
+  overflow-x: hidden;
+}
+.dialog > *,
+.dialog form {
+  min-width: 0;
+}

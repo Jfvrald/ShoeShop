@@ -249,6 +249,7 @@ export default function ShopPage({ products, wishlist, onOpen, onWish, filters, 
                 {results.length} {results.length === 1 ? "result" : "results"}
               </p>
             </div>
+            <div className="shop-bar">
             <div className="shop-tools">
               <label className="shop-search">
                 <span className="sr-only">Search the collection</span>
@@ -271,21 +272,22 @@ export default function ShopPage({ products, wishlist, onOpen, onWish, filters, 
                 </select>
               </label>
               <button className={"shop-saved" + (f.saved ? " on" : "")} aria-pressed={f.saved} onClick={() => patch({ saved: !f.saved })}>
-                <Heart size={16} weight={f.saved ? "fill" : "regular"} /> Saved ({wishlist.length})
+                <Heart size={16} weight={f.saved ? "fill" : "regular"} /> <span className="shop-saved-label">Saved</span> ({wishlist.length})
               </button>
               <button className="shop-open-filters" onClick={() => setSheet(true)}>
                 <SlidersHorizontal size={18} /> Filters{chips.length ? ` (${chips.length})` : ""}
               </button>
             </div>
-          </header>
 
-          <div className="shop-pills" role="group" aria-label="Category">
-            {["All", ...CATEGORIES].map((name) => (
-              <button key={name} className={f.category === name ? "on" : ""} aria-pressed={f.category === name} onClick={() => patch({ category: name })}>
-                {name}
-              </button>
-            ))}
-          </div>
+            <div className="shop-pills" role="group" aria-label="Category">
+              {["All", ...CATEGORIES].map((name) => (
+                <button key={name} className={f.category === name ? "on" : ""} aria-pressed={f.category === name} onClick={() => patch({ category: name })}>
+                  {name}
+                </button>
+              ))}
+            </div>
+            </div>
+          </header>
 
           {chips.length > 0 && (
             <ul className="shop-chips" aria-label="Active filters">

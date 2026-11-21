@@ -319,7 +319,8 @@
   .cm-grid,
   .cm-feed-body,
   .circle-row {
-    grid-template-columns: 1fr;
+    /* minmax(0, …) lets cards shrink below their content width on narrow phones */
+    grid-template-columns: minmax(0, 1fr);
   }
   .review-form,
   .review-gate {
@@ -330,5 +331,43 @@
   }
   .waiting li {
     flex-wrap: wrap;
+  }
+}
+@media (max-width: 560px) {
+  .cm {
+    gap: 40px;
+  }
+  .cm-stats div {
+    flex: 1 1 140px;
+    min-width: 0;
+  }
+  .cm-card,
+  .cm-feed-body aside > div,
+  .review-form {
+    padding: 20px 18px;
+    border-radius: 20px;
+  }
+  /* Ranked list: smaller thumb and gaps so names get room instead of
+     wrapping one word per line. */
+  .rank li,
+  .waiting li {
+    gap: 10px;
+  }
+  .rank .n {
+    width: 14px;
+  }
+  .rank img,
+  .waiting img,
+  .reports img {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+  /* Restock rows: the request button drops under the name when space runs out. */
+  .waiting li > span {
+    flex: 1 1 160px;
+  }
+  .waiting .button {
+    margin-left: auto;
   }
 }
